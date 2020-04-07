@@ -17,6 +17,7 @@
 		84982391243C4DC000E8CA58 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8498238F243C4DC000E8CA58 /* LaunchScreen.storyboard */; };
 		8498239C243C4DC000E8CA58 /* BooksDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8498239B243C4DC000E8CA58 /* BooksDemoTests.swift */; };
 		849823A7243C4DC100E8CA58 /* BooksDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849823A6243C4DC100E8CA58 /* BooksDemoUITests.swift */; };
+		849C6F27243C50AC001DC258 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849C6F26243C50AC001DC258 /* UIColorExtension.swift */; };
 		9DD26ED730DBB3CC94C83306 /* Pods_BooksDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4527808AE52DDE3582809908 /* Pods_BooksDemoTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +55,7 @@
 		849823A2243C4DC100E8CA58 /* BooksDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BooksDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		849823A6243C4DC100E8CA58 /* BooksDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksDemoUITests.swift; sourceTree = "<group>"; };
 		849823A8243C4DC100E8CA58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		849C6F26243C50AC001DC258 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		949C8FAD41E712318B66199C /* Pods-BooksDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BooksDemo.release.xcconfig"; path = "Target Support Files/Pods-BooksDemo/Pods-BooksDemo.release.xcconfig"; sourceTree = "<group>"; };
 		9990AAC3B39780CD2E9471F0 /* Pods-BooksDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BooksDemoTests.release.xcconfig"; path = "Target Support Files/Pods-BooksDemoTests/Pods-BooksDemoTests.release.xcconfig"; sourceTree = "<group>"; };
 		BA26D8E38C4CEAE8FAF4C0B3 /* Pods-BooksDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BooksDemoTests.debug.xcconfig"; path = "Target Support Files/Pods-BooksDemoTests/Pods-BooksDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -223,8 +225,17 @@
 		849C6F24243C5041001DC258 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				849C6F25243C508B001DC258 /* Extensions */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		849C6F25243C508B001DC258 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				849C6F26243C50AC001DC258 /* UIColorExtension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		C12D810C53EB277AF60DAD87 /* Pods */ = {
@@ -482,6 +493,7 @@
 				84982389243C4DBF00E8CA58 /* ViewController.swift in Sources */,
 				84982385243C4DBF00E8CA58 /* AppDelegate.swift in Sources */,
 				84982387243C4DBF00E8CA58 /* SceneDelegate.swift in Sources */,
+				849C6F27243C50AC001DC258 /* UIColorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
