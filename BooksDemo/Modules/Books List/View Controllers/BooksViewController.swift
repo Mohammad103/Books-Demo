@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UIScrollView_InfiniteScroll
 
 class BooksViewController: UIViewController {
 
@@ -25,7 +26,7 @@ class BooksViewController: UIViewController {
         viewModel.delegate = self
         
         setupBooksTableViewUI()
-        viewModel.loadBooksForKeyword("harry")
+        loadData()
     }
     
     
@@ -40,6 +41,16 @@ class BooksViewController: UIViewController {
         booksTableView.translatesAutoresizingMaskIntoConstraints = false
         booksTableView.register(BookTableViewCell.self, forCellReuseIdentifier: BookTableViewCell.cellId)
         view.addSubview(booksTableView)
+        
+        booksTableView?.addInfiniteScroll(handler: { [weak self] (tableView) in
+            guard let weakSelf = self else { return }
+            weakSelf.loadData()
+        })
+        
+        booksTableView?.setShouldShowInfiniteScrollHandler({ [weak self] (tableView) -> Bool in
+            guard let weakSelf = self else { return false }
+            return weakSelf.viewModel.shouldLoadMoreBooks()
+        })
         
         setupTableHeaderView()
         booksTableView.tableFooterView = UIView()
@@ -66,6 +77,11 @@ class BooksViewController: UIViewController {
         titleLabel.centerXAnchor.constraint(equalTo: headerView.centerXAnchor, constant: 0).isActive = true
         titleLabel.centerYAnchor.constraint(equalTo: headerView.centerYAnchor, constant: 0).isActive = true
     }
+    
+    // MARK: Data loading
+    private func loadData() {
+        viewModel.loadBooksForKeyword("harry")
+    }
 }
 
 
@@ -86,10 +102,13 @@ extension BooksViewController: UITableViewDelegate, UITableViewDataSource {
 // MARK: - BooksViewModelDelegate
 extension BooksViewController: BooksViewModelDelegate {
     func booksLoadedSuccessfully() {
+        booksTableView.finishInfiniteScroll()
         booksTableView.reloadData()
     }
     
     func booksFailedWithError(_ errorMessage: String) {
+        booksTableView.finishInfiniteScroll()
+        
         let alert = UIAlertController(title: "Error", message: errorMessage, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
         self.present(alert, animated: true)

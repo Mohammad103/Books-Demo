@@ -6,6 +6,7 @@ target 'BooksDemo' do
   use_frameworks!
 
   pod 'Alamofire'
+  pod 'UIScrollView-InfiniteScroll', '~> 1.1.0'
 
   target 'BooksDemoTests' do
     inherit! :search_paths

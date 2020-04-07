@@ -76,5 +76,7 @@ class BookTableViewCell: UITableViewCell {
         titleLabel.text = book.title
         authorsLabel.text = book.authorsDescription()
         narratorsLabel.text = book.narratorsDescription()
+        
+        // TODO: Load cover image
     }
 }
