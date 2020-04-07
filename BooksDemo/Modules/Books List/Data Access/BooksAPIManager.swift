@@ -22,7 +22,7 @@ class BooksAPIManager: NSObject {
                     let decoder = JSONDecoder()
                     if let data = response.data {
                         let moviesResponse = try decoder.decode(BooksResponse.self, from: data)
-                        print(moviesResponse)
+//                        print(moviesResponse)
                         success(moviesResponse)
                     } else {
                         let errorMessage = "Parsing failed with error - No data received"
