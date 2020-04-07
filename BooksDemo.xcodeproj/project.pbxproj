@@ -12,6 +12,8 @@
 		849375A6243D0C5800A72AE0 /* BooksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849375A5243D0C5800A72AE0 /* BooksViewModel.swift */; };
 		849375AA243D27E200A72AE0 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849375A9243D27E200A72AE0 /* UIViewControllerExtension.swift */; };
 		849375AC243D29A200A72AE0 /* BookModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849375AB243D29A200A72AE0 /* BookModelTests.swift */; };
+		849375AE243D2D3700A72AE0 /* BooksResponseModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849375AD243D2D3700A72AE0 /* BooksResponseModelTests.swift */; };
+		849375B1243D2EAD00A72AE0 /* books-sample.json in Resources */ = {isa = PBXBuildFile; fileRef = 849375B0243D2EAD00A72AE0 /* books-sample.json */; };
 		84982385243C4DBF00E8CA58 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84982384243C4DBF00E8CA58 /* AppDelegate.swift */; };
 		84982387243C4DBF00E8CA58 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84982386243C4DBF00E8CA58 /* SceneDelegate.swift */; };
 		84982389243C4DBF00E8CA58 /* BooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84982388243C4DBF00E8CA58 /* BooksViewController.swift */; };
@@ -55,6 +57,8 @@
 		849375A5243D0C5800A72AE0 /* BooksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksViewModel.swift; sourceTree = "<group>"; };
 		849375A9243D27E200A72AE0 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		849375AB243D29A200A72AE0 /* BookModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookModelTests.swift; sourceTree = "<group>"; };
+		849375AD243D2D3700A72AE0 /* BooksResponseModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksResponseModelTests.swift; sourceTree = "<group>"; };
+		849375B0243D2EAD00A72AE0 /* books-sample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "books-sample.json"; sourceTree = "<group>"; };
 		84982381243C4DBF00E8CA58 /* BooksDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BooksDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84982384243C4DBF00E8CA58 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84982386243C4DBF00E8CA58 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -125,6 +129,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		849375AF243D2E4B00A72AE0 /* Test Samples */ = {
+			isa = PBXGroup;
+			children = (
+				849375B0243D2EAD00A72AE0 /* books-sample.json */,
+			);
+			path = "Test Samples";
+			sourceTree = "<group>";
+		};
 		84982378243C4DBF00E8CA58 = {
 			isa = PBXGroup;
 			children = (
@@ -154,6 +166,7 @@
 				84982386243C4DBF00E8CA58 /* SceneDelegate.swift */,
 				849C6F1D243C4E84001DC258 /* Modules */,
 				849C6F24243C5041001DC258 /* Common */,
+				849375AF243D2E4B00A72AE0 /* Test Samples */,
 				849C6F1C243C4E6E001DC258 /* Assets */,
 			);
 			path = BooksDemo;
@@ -163,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				8498239B243C4DC000E8CA58 /* BooksDemoTests.swift */,
+				849375AD243D2D3700A72AE0 /* BooksResponseModelTests.swift */,
 				849375AB243D29A200A72AE0 /* BookModelTests.swift */,
 				8498239D243C4DC000E8CA58 /* Info.plist */,
 			);
@@ -402,6 +416,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				849375B1243D2EAD00A72AE0 /* books-sample.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -546,6 +561,7 @@
 			files = (
 				849375AC243D29A200A72AE0 /* BookModelTests.swift in Sources */,
 				8498239C243C4DC000E8CA58 /* BooksDemoTests.swift in Sources */,
+				849375AE243D2D3700A72AE0 /* BooksResponseModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
