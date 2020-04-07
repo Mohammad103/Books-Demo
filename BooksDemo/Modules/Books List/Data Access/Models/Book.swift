@@ -24,6 +24,12 @@ struct Book : Codable {
         case narrators = "narrators"
     }
     
+    init() {
+        id = nil
+        title = nil
+        cover = nil
+    }
+    
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         id = try values.decodeIfPresent(String.self, forKey: .id)
