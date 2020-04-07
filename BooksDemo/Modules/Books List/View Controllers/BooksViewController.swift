@@ -10,14 +10,22 @@ import UIKit
 
 class BooksViewController: UIViewController {
 
+    // MARK: - UI Variables
     private var booksTableView: UITableView!
+    
+    // MARK: - Variables
+    private var viewModel: BooksViewModel!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         view.backgroundColor = .greyF6F6F6
+        
+        viewModel = BooksViewModel()
+        viewModel.delegate = self
+        
         setupBooksTableViewUI()
+        viewModel.loadBooksForKeyword("harry")
     }
     
     
@@ -32,7 +40,9 @@ class BooksViewController: UIViewController {
         booksTableView.translatesAutoresizingMaskIntoConstraints = false
         booksTableView.register(BookTableViewCell.self, forCellReuseIdentifier: BookTableViewCell.cellId)
         view.addSubview(booksTableView)
+        
         setupTableHeaderView()
+        booksTableView.tableFooterView = UIView()
         
         let margins = view.layoutMarginsGuide
         let topViewMargin = -1 * UIApplication.shared.windows[0].safeAreaInsets.top
@@ -62,12 +72,26 @@ class BooksViewController: UIViewController {
 // MARK: - UITableViewDelegate, UITableViewDataSource
 extension BooksViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        return viewModel.totalBooksCount()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: BookTableViewCell.cellId, for: indexPath) as! BookTableViewCell
-        cell.setupwithTitle("Test title", authors: "By: Author 1, Author 2", narrators: "With: Narrator 1, Narrator 2", coverImageURL: "")
+        cell.setupCell(book: viewModel.book(at: indexPath.row))
         return cell
+    }
+}
+
+
+// MARK: - BooksViewModelDelegate
+extension BooksViewController: BooksViewModelDelegate {
+    func booksLoadedSuccessfully() {
+        booksTableView.reloadData()
+    }
+    
+    func booksFailedWithError(_ errorMessage: String) {
+        let alert = UIAlertController(title: "Error", message: errorMessage, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+        self.present(alert, animated: true)
     }
 }

@@ -10,8 +10,10 @@ import UIKit
 
 class BookTableViewCell: UITableViewCell {
 
+    // MARK: - Static Variables
     static let cellId = "BookTableViewCell"
     
+    // MARK: - UI Variables
     private var coverImageView = UIImageView()
     private var labelsStackView: UIStackView!
     private var titleLabel = UILabel()
@@ -70,9 +72,9 @@ class BookTableViewCell: UITableViewCell {
     
     
     // MARK: - Setup cell
-    func setupwithTitle(_ title: String, authors: String, narrators: String, coverImageURL: String) {
-        titleLabel.text = title
-        authorsLabel.text = authors
-        narratorsLabel.text = narrators
+    func setupCell(book: Book) {
+        titleLabel.text = book.title
+        authorsLabel.text = book.authorsDescription()
+        narratorsLabel.text = book.narratorsDescription()
     }
 }

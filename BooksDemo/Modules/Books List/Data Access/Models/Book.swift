@@ -33,4 +33,36 @@ struct Book : Codable {
         narrators = try values.decodeIfPresent([Narrator].self, forKey: .narrators) ?? []
     }
     
+    // MARK: - Getter methods
+    func authorsDescription() -> String {
+        if authors.count == 0 {
+            return ""
+        }
+        
+        var result = "By: "
+        for index in 0 ..< authors.count {
+            guard let name = authors[index].name else { continue }
+            result.append(name)
+            if index < authors.count - 1 { // Not last item
+                result.append(", ")
+            }
+        }
+        return result
+    }
+    
+    func narratorsDescription() -> String {
+        if narrators.count == 0 {
+            return ""
+        }
+        
+        var result = "With: "
+        for index in 0 ..< narrators.count {
+            guard let name = narrators[index].name else { continue }
+            result.append(name)
+            if index < narrators.count - 1 { // Not last item
+                result.append(", ")
+            }
+        }
+        return result
+    }
 }
