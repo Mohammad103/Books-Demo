@@ -26,6 +26,7 @@ class BooksViewController: UIViewController {
         viewModel.delegate = self
         
         setupBooksTableViewUI()
+        showSpinner(onView: view)
         loadData()
     }
     
@@ -102,11 +103,13 @@ extension BooksViewController: UITableViewDelegate, UITableViewDataSource {
 // MARK: - BooksViewModelDelegate
 extension BooksViewController: BooksViewModelDelegate {
     func booksLoadedSuccessfully() {
+        removeSpinner()
         booksTableView.finishInfiniteScroll()
         booksTableView.reloadData()
     }
     
     func booksFailedWithError(_ errorMessage: String) {
+        removeSpinner()
         booksTableView.finishInfiniteScroll()
         
         let alert = UIAlertController(title: "Error", message: errorMessage, preferredStyle: .alert)
