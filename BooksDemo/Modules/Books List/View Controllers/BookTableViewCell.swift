@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class BookTableViewCell: UITableViewCell {
 
@@ -77,6 +78,8 @@ class BookTableViewCell: UITableViewCell {
         authorsLabel.text = book.authorsDescription()
         narratorsLabel.text = book.narratorsDescription()
         
-        // TODO: Load cover image
+        if let coverURLStr = book.cover?.url, let url = URL(string: coverURLStr) {
+            coverImageView.kf.setImage(with: url, placeholder: #imageLiteral(resourceName: "placeholder"))
+        }
     }
 }
